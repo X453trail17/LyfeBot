@@ -1,0 +1,24 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run build script
+        run: |
+          npm install
+          npm run build
+
+      - name: Deploy to production
+        uses: actions/deploy@v2
+        with:
+          deploy_key: ${{ secrets.DEPLOY_KEY }}
+          app_name: my-app
+          environment: production
+```
