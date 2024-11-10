@@ -1,4 +1,4 @@
-on:
+īon:
   push:
     branches:
       - main
@@ -21,4 +21,3 @@ jobs:
           deploy_key: ${{ secrets.DEPLOY_KEY }}
           app_name: my-app
           environment: production
-```
